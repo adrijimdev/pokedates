@@ -3,11 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
+import { SwipeComponent } from './components/swipe/swipe.component';
+import { LikesComponent } from './components/likes/likes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    SwipeComponent,
+    LikesComponent
   ],
   imports: [
     BrowserModule
