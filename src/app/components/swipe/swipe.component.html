@@ -1,11 +1,15 @@
 <div class="profile">
   <ng-container *ngIf="this.likedPokemon.length + this.dislikedPokemon.length === this.maxNumber; else pokemonData">
     <div>
-      No quedan más pokémon por mostrar.
-      <!-- gif Pikachu llorando -->
+      <div>No quedan más pokémon por mostrar.</div>
+      <img src="../../../assets/img/sad-pikachu.gif" alt="Gif de Pikachu llorando">
     </div>
   </ng-container>
   <ng-template #pokemonData>
-    <img [src]="imgPokemon" alt="">
+    <img [src]="pokemon.image" alt="Arte oficial de ">
+    <div class="controls">
+      <i class="dislike fa-solid fa-x rounded-circle p-3" (click)="dislike()"></i>
+      <i class="like fa-solid fa-heart rounded-circle p-3" (click)="like()"></i>
+    </div>
   </ng-template>
 </div>

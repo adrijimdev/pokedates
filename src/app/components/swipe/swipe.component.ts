@@ -7,12 +7,18 @@ import { Pokemon } from 'src/app/models/pokemon';
   styleUrls: ['./swipe.component.css']
 })
 export class SwipeComponent {
-  imgPokemon: string = "";
-  maxNumber: number = 20; //1010
+  // imgPokemon: string = "";
+  maxNumber: number = 2; //1010
   pokemonSwiped: number = 0;
   id: number = 0;
+  pokemon: Pokemon = {
+    id: 0,
+    name: '',
+    image: ''
+  };
   likedPokemon: Pokemon[] = [];
   dislikedPokemon: Pokemon[] = [];
+  //array.includes(value)
 
   ngOnInit() {
     this.bringPokemon();
@@ -27,8 +33,17 @@ export class SwipeComponent {
     fetch(`https://pokeapi.co/api/v2/pokemon/${this.id}`)
     .then(response => response.json())
     .then((pokemonReceived) => {
-      this.imgPokemon = pokemonReceived.sprites.other['official-artwork'].front_default;
+      this.pokemon.id = pokemonReceived.id;
+      this.pokemon.name = pokemonReceived.name;
+      this.pokemon.image = pokemonReceived.sprites.other['official-artwork'].front_default;
     })
+  }
+
+  dislike() {
+
+  }
+  like() {
+
   }
 
 }

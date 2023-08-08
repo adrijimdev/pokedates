@@ -1,0 +1,21 @@
+i {
+  font-size:xx-large;
+}
+
+.like {
+  color: #198754;
+}
+
+.dislike {
+  color: #dc3545;
+}
+
+.like:hover {
+  background-color: #198754;
+  color: white;
+}
+
+.dislike:hover {
+  background-color: #dc3545;
+  color: white;
+}

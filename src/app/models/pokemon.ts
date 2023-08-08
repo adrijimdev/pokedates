@@ -1,14 +1,12 @@
 export class Pokemon {
   id: number;
-  nombre: string;
-  email: string;
-  contraseña: string;
+  name: string;
+  image: string;
 
-  constructor(id: number, nombre: string, email: string, contraseña: string) {
+  constructor(id: number, name: string, image: string) {
     this.id = id;
-    this.nombre = nombre;
-    this.email = email;
-    this.contraseña = contraseña;
+    this.name = name;
+    this.image = image;
   }
 
   // Métodos adicionales (opcional)
