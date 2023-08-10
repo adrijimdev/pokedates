@@ -8,7 +8,4 @@ export class Pokemon {
     this.name = name;
     this.image = image;
   }
-
-  // Métodos adicionales (opcional)
-  // ...
 }

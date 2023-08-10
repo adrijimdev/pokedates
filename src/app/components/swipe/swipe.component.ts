@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
+import { ChangeDetectionStrategy } from '@angular/core';
+
 import { Pokemon } from 'src/app/models/pokemon';
 
 @Component({
-  selector: 'swift-component',
+  selector: 'swipe-component',
   templateUrl: './swipe.component.html',
   styleUrls: ['./swipe.component.css']
 })
 export class SwipeComponent {
-  // imgPokemon: string = "";
-  maxNumber: number = 2; //1010
-  pokemonSwiped: number = 0;
+  maxNumber: number = 4; //1010
+  swipedPokemon: number[] = [];
   id: number = 0;
   pokemon: Pokemon = {
     id: 0,
@@ -17,8 +18,6 @@ export class SwipeComponent {
     image: ''
   };
   likedPokemon: Pokemon[] = [];
-  dislikedPokemon: Pokemon[] = [];
-  //array.includes(value)
 
   ngOnInit() {
     this.bringPokemon();
@@ -29,7 +28,10 @@ export class SwipeComponent {
   }
 
   bringPokemon() {
-    this.id = this.randomPokemon();
+    do {
+      this.id = this.randomPokemon();
+    } while(this.swipedPokemon.includes(this.id));
+
     fetch(`https://pokeapi.co/api/v2/pokemon/${this.id}`)
     .then(response => response.json())
     .then((pokemonReceived) => {
@@ -40,10 +42,18 @@ export class SwipeComponent {
   }
 
   dislike() {
-
+    this.swipedPokemon.push(this.pokemon.id);
+    if (this.swipedPokemon.length !== this.maxNumber) {
+      this.bringPokemon();
+    }
   }
-  like() {
 
+  like() {
+    this.swipedPokemon.push(this.pokemon.id);
+    this.likedPokemon.push(new Pokemon(this.pokemon.id, this.pokemon.name, this.pokemon.image))
+    if (this.swipedPokemon.length !== this.maxNumber) {
+      this.bringPokemon();
+    }
   }
 
 }
