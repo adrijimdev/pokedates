@@ -6,3 +6,8 @@
   font-family: "Proxima Nova Soft W03 Regular";
   margin-left: 3px;
 }
+
+.active {
+  font-weight: bold;
+}
+

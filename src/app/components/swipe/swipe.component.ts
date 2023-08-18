@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ChangeDetectionStrategy } from '@angular/core';
 
 import { Pokemon } from 'src/app/models/pokemon';
 
@@ -9,18 +8,25 @@ import { Pokemon } from 'src/app/models/pokemon';
   styleUrls: ['./swipe.component.css']
 })
 export class SwipeComponent {
-  maxNumber: number = 4; //1010
+  maxNumber: number = 1010; //1010
   swipedPokemon: number[] = [];
   id: number = 0;
   pokemon: Pokemon = {
     id: 0,
     name: '',
-    image: ''
+    image: '',
+    sprite: ''
   };
-  likedPokemon: Pokemon[] = [];
+  likedPokemonList: Pokemon[] = [];
+  showLikes: boolean = false;
+  showSwipe: boolean = true;
 
   ngOnInit() {
-    this.bringPokemon();
+    const storedSwipedPokemon = localStorage.getItem('swipedPokemon');
+    this.swipedPokemon = storedSwipedPokemon ? JSON.parse(storedSwipedPokemon) : [];
+    if (this.swipedPokemon.length !== this.maxNumber) {
+      this.bringPokemon();
+    }
   }
 
   randomPokemon() {
@@ -38,6 +44,7 @@ export class SwipeComponent {
       this.pokemon.id = pokemonReceived.id;
       this.pokemon.name = pokemonReceived.name;
       this.pokemon.image = pokemonReceived.sprites.other['official-artwork'].front_default;
+      this.pokemon.sprite = pokemonReceived.sprites.front_default;
     })
   }
 
@@ -46,14 +53,30 @@ export class SwipeComponent {
     if (this.swipedPokemon.length !== this.maxNumber) {
       this.bringPokemon();
     }
+    this.saveToLocalStorage();
   }
 
   like() {
     this.swipedPokemon.push(this.pokemon.id);
-    this.likedPokemon.push(new Pokemon(this.pokemon.id, this.pokemon.name, this.pokemon.image))
+    const likedPokemon = new Pokemon(this.pokemon.id, this.pokemon.name, this.pokemon.image, this.pokemon.sprite);
+    this.saveLikedPokemonToLocalStorage(likedPokemon);
+
     if (this.swipedPokemon.length !== this.maxNumber) {
       this.bringPokemon();
     }
+    this.saveToLocalStorage();
   }
+
+  private saveToLocalStorage() {
+    localStorage.setItem('swipedPokemon', JSON.stringify(this.swipedPokemon));
+  }
+
+  private saveLikedPokemonToLocalStorage(pokemon: Pokemon) {
+    const storedLikedPokemonList = localStorage.getItem('likedPokemonList');
+    const likedPokemonList = storedLikedPokemonList ? JSON.parse(storedLikedPokemonList) : [];
+    likedPokemonList.push(pokemon);
+    localStorage.setItem('likedPokemonList', JSON.stringify(likedPokemonList));
+  }
+
 
 }

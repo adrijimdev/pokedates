@@ -1,1 +1,4 @@
-<p>likes works!</p>
+<div (click)="this.resetSwipes()">Reiniciar likes</div>
+<div *ngFor="let pokemon of likedPokemonList">
+  {{ pokemon.name }} - <img [src]="pokemon.sprite" alt="Sprite de {{ pokemon.name }}">
+</div>

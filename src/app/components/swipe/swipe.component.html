@@ -6,17 +6,10 @@
     </div>
   </ng-container>
   <ng-template #pokemonData>
-    <img [src]="pokemon.image" alt="Arte oficial de {{ pokemon.name}}">
+    <img [src]="pokemon.image" alt="Arte oficial de {{ pokemon.name }}">
     <div class="controls">
       <i class="dislike fa-solid fa-x rounded-circle p-3" (click)="dislike()"></i>
       <i class="like fa-solid fa-heart rounded-circle p-3" (click)="like()"></i>
     </div>
   </ng-template>
-</div>
-<div *ngFor="let pokemon of likedPokemon">
-  {{ pokemon.name }}
-</div>
-
-<div *ngFor="let index of swipedPokemon">
-  {{ index }}
 </div>
