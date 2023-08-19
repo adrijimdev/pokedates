@@ -56,19 +56,21 @@ export class SwipeComponent {
     this.saveToLocalStorage();
   }
 
-  hoverIn() {
-    const element = document.getElementById('dislike');
-    if (element) {
-      element.classList.add('hovered');
-    }
-  }
+  // hoverIn() {
+  //   const element = document.getElementById('dislike');
+  //   if (element) {
+  //     element.classList.add('hovered');
+  //   }
+  //   console.log("hover in");
+  // }
 
-  hoverOut() {
-    const element = document.getElementById('dislike');
-    if (element) {
-      element.classList.remove('hovered');
-    }
-  }
+  // hoverOut() {
+  //   const element = document.getElementById('dislike');
+  //   if (element) {
+  //     element.classList.remove('hovered');
+  //   }
+  //   console.log("hover out");
+  // }
 
   like() {
     this.swipedPokemon.push(this.pokemon.id);

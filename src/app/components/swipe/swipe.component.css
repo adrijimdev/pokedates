@@ -2,27 +2,35 @@ i {
   font-size:xx-large;
 }
 
-.likeNoHover {
+.like {
   background-color: transparent;
   color: #198754;
 }
 
-#dislike {
-  background-color: transparent;
+.dislike {
   color: #dc3545;
 }
 
-.dislike-no-hover {
-  background-color: transparent;
-  color: #dc3545;
+@media (min-width: 768px) {
+  .like:hover {
+    background-color: #198754;
+    color: white;
+  }
+
+  .dislike:hover {
+    background-color: #dc3545;
+    color: white;
+  }
 }
 
-#like:hover {
-  background-color: #198754;
-  color: white;
-}
+@media (max-width: 767px) {
+  .like:touched  {
+    background-color: #198754;
+    color: white;
+  }
 
-.hovered {
-  background-color: #dc3545;
-  color: white;
+  .dislike:touched  {
+    background-color: #dc3545;
+    color: white;
+  }
 }
