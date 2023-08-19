@@ -7,7 +7,12 @@ i {
   color: #198754;
 }
 
-.dislikeNoHover {
+#dislike {
+  background-color: transparent;
+  color: #dc3545;
+}
+
+.dislike-no-hover {
   background-color: transparent;
   color: #dc3545;
 }
