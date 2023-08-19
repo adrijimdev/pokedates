@@ -2,20 +2,22 @@ i {
   font-size:xx-large;
 }
 
-.like {
+.likeNoHover {
+  background-color: transparent;
   color: #198754;
 }
 
-.dislike {
+.dislikeNoHover {
+  background-color: transparent;
   color: #dc3545;
 }
 
-.like:hover {
+#like:hover {
   background-color: #198754;
   color: white;
 }
 
-.dislike:hover {
+#dislike:hover {
   background-color: #dc3545;
   color: white;
 }

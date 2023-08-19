@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SwiftComponent } from './swipe.component';
+import { SwipeComponent } from './swipe.component';
 
 describe('SwiftComponent', () => {
-  let component: SwiftComponent;
-  let fixture: ComponentFixture<SwiftComponent>;
+  let component: SwipeComponent;
+  let fixture: ComponentFixture<SwipeComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SwiftComponent]
+      declarations: [SwipeComponent]
     });
-    fixture = TestBed.createComponent(SwiftComponent);
+    fixture = TestBed.createComponent(SwipeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
