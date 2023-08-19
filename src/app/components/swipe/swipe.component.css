@@ -22,7 +22,7 @@ i {
   color: white;
 }
 
-#dislike:hover {
+.hovered {
   background-color: #dc3545;
   color: white;
 }

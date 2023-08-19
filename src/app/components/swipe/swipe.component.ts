@@ -54,13 +54,19 @@ export class SwipeComponent {
       this.bringPokemon();
     }
     this.saveToLocalStorage();
-    this.removeHoverStyle('dislike');
   }
 
-  removeHoverStyle(elementId: string) {
-    const element = document.getElementById(elementId);
+  hoverIn() {
+    const element = document.getElementById('dislike');
     if (element) {
-      element.classList.remove('dislike-no-hover');
+      element.classList.add('hovered');
+    }
+  }
+
+  hoverOut() {
+    const element = document.getElementById('dislike');
+    if (element) {
+      element.classList.remove('hovered');
     }
   }
 
