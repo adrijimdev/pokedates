@@ -1,15 +1,28 @@
-<div class="profile">
-  <ng-container *ngIf="this.swipedPokemon.length === this.maxNumber; else pokemonData">
-    <div>
-      <div>No quedan más pokémon por mostrar.</div>
-      <img src="../../../assets/img/sad-pikachu.gif" alt="Gif de Pikachu llorando">
+<div class="profile mx-auto mt-3">
+  <ng-container *ngIf="this.loadingData; else pokemonProfile">
+    <div class="d-flex justify-content-center align-items-center">
+      <div class="loading text-center">
+        <img src="../../../assets/img/rotating-pokeball.gif" width="50%" alt="Gif de una pokeball estilo 8 bits rotando" class="mx-auto">
+        <!-- <div>CARGANDO</div> -->
+      </div>
     </div>
   </ng-container>
-  <ng-template #pokemonData>
-    <img [src]="pokemon.image" alt="Arte oficial de {{ pokemon.name }}">
-    <div class="controls">
-      <i class="dislike fa-solid fa-x rounded-circle p-3" (click)="dislike()"></i>
-      <i class="like fa-solid fa-heart rounded-circle p-3" (click)="like()"></i>
-    </div>
+  <ng-template #pokemonProfile>
+    <ng-container *ngIf="this.swipedPokemon.length === this.maxNumber; else pokemonData">
+      <div>
+        <div>No quedan más pokémon por mostrar.</div>
+        <img src="../../../assets/img/sad-pikachu.gif" alt="Gif de Pikachu llorando">
+      </div>
+    </ng-container>
+    <ng-template #pokemonData>
+      <img class="pokemon-artwork" [src]="pokemon.image" alt="Arte oficial de {{ pokemon.name }}">
+      <div class="name">
+        {{ pokemon.name }}
+      </div>
+      <div class="controls mx-auto">
+        <i class="dislike fa-solid fa-x rounded-circle p-3" (click)="dislike()"></i>
+        <i class="like fa-solid fa-heart rounded-circle p-3" (click)="like()"></i>
+      </div>
+    </ng-template>
   </ng-template>
 </div>

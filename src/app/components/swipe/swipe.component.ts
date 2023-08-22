@@ -20,6 +20,7 @@ export class SwipeComponent {
   likedPokemonList: Pokemon[] = [];
   showLikes: boolean = false;
   showSwipe: boolean = true;
+  loadingData: boolean = false;
 
   ngOnInit() {
     const storedSwipedPokemon = localStorage.getItem('swipedPokemon');
@@ -38,6 +39,8 @@ export class SwipeComponent {
       this.id = this.randomPokemon();
     } while(this.swipedPokemon.includes(this.id));
 
+    this.loadingData = true;
+
     fetch(`https://pokeapi.co/api/v2/pokemon/${this.id}`)
     .then(response => response.json())
     .then((pokemonReceived) => {
@@ -45,6 +48,12 @@ export class SwipeComponent {
       this.pokemon.name = pokemonReceived.name;
       this.pokemon.image = pokemonReceived.sprites.other['official-artwork'].front_default;
       this.pokemon.sprite = pokemonReceived.sprites.front_default;
+
+      const pokemonImage = new Image();
+      pokemonImage.src = this.pokemon.image;
+      pokemonImage.onload = () => {
+        this.loadingData = false;
+      }
     })
   }
 

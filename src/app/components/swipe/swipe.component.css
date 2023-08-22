@@ -1,9 +1,29 @@
+.profile {
+  text-align: center;
+  box-shadow: 0px 0px 22px 1px rgba(0,0,0,0.1);
+  background-color: white;
+  border-radius: 10px;
+  /* padding-bottom: 1%; */
+  width: 25%;
+  padding-top: 1%;
+  height: 650px;
+}
+
+.loading {
+  margin-top: 40%;
+}
+
+.name {
+  font-family: 'ArcadeClassic', sans-serif;
+  font-size: xx-large;
+  font-weight: bold;
+}
+
 i {
   font-size:xx-large;
 }
 
 .like {
-  background-color: transparent;
   color: #198754;
 }
 
@@ -11,26 +31,23 @@ i {
   color: #dc3545;
 }
 
-@media (min-width: 768px) {
-  .like:hover {
-    background-color: #198754;
-    color: white;
-  }
+.like:hover {
+  background-color: #198754;
+  color: white;
+}
 
-  .dislike:hover {
-    background-color: #dc3545;
-    color: white;
-  }
+.dislike:hover {
+  background-color: #dc3545;
+  color: white;
 }
 
 @media (max-width: 767px) {
-  .like:touched  {
-    background-color: #198754;
-    color: white;
+  .profile {
+    width: 75%;
+    height: 450px;
   }
 
-  .dislike:touched  {
-    background-color: #dc3545;
-    color: white;
+  .pokemon-artwork {
+    width: 100%;
   }
 }
