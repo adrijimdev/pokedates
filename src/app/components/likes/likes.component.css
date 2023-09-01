@@ -1,0 +1,60 @@
+div, p {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#psyduck-gif {
+  width: 50%;
+}
+
+#link-to-swipes {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+#link-to-swipes:hover {
+  cursor: pointer;
+}
+
+#reset-swipes {
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: underline;
+  font-size: large;
+}
+
+#reset-swipes:hover {
+  cursor: pointer;
+}
+
+.liked-pokemon-list {
+  display: block;
+  text-align: center;
+  font-family: 'ArcadeClassic', sans-serif;
+  font-weight: bold;
+  font-size: x-large;
+}
+
+.odd-line {
+  color: #dc3545;
+  background-color: rgb(240, 239, 239);
+}
+
+.even-line {
+  color: white;
+  background-color: #dc3545;
+}
+
+@media (max-width: 767px) {
+  .liked-pokemon-list {
+    width: 100%;
+  }
+
+  #psyduck-gif {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .liked-pokemon-list {
+    width: 100%;
+  }
+}

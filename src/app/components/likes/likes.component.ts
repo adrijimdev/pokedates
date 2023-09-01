@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 import { Pokemon } from 'src/app/models/pokemon';
+import { SwipedPokemonService  } from '../../services/swiped-pokemon-service.service';
 
 @Component({
   selector: 'likes-component',
@@ -10,20 +12,25 @@ import { Pokemon } from 'src/app/models/pokemon';
 })
 export class LikesComponent {
   likedPokemonList: Pokemon[] = [];
+  likedPokemonListSubscription!: Subscription;
 
-  constructor(private router: Router) {}
+
+  constructor(
+    private router: Router,
+    private swipedPokemonService: SwipedPokemonService
+  ) {}
 
   ngOnInit() {
-    const storedLikedPokemonList = localStorage.getItem('likedPokemonList');
-    this.likedPokemonList = storedLikedPokemonList ? JSON.parse(storedLikedPokemonList) : [];
-    for (let i = 0; i < this.likedPokemonList.length; i++) {
-      console.log(this.likedPokemonList[i])
-    }
+    // const storedLikedPokemonList = localStorage.getItem('likedPokemonList');
+    // this.likedPokemonList = storedLikedPokemonList ? JSON.parse(storedLikedPokemonList) : [];
+    this.likedPokemonList = this.swipedPokemonService.getLikedPokemon();
   }
 
   resetSwipes() {
-    localStorage.removeItem('swipedPokemon');
-    localStorage.removeItem('likedPokemonList');
+    // localStorage.removeItem('swipedPokemon');
+    // localStorage.removeItem('likedPokemonList');
+    this.swipedPokemonService.clearLikedPokemon();
+    this.swipedPokemonService.clearSwipedPokemon();
     this.router.navigate(['/swipe']);
   }
 }

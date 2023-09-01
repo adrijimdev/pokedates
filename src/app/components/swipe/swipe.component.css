@@ -34,11 +34,13 @@ i {
 .like:hover {
   background-color: #198754;
   color: white;
+  transition: 0.5s;
 }
 
 .dislike:hover {
   background-color: #dc3545;
   color: white;
+  transition: 0.5s;
 }
 
 @media (max-width: 767px) {
@@ -49,5 +51,16 @@ i {
 
   .pokemon-artwork {
     width: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .profile {
+    width: 75%;
+    height: 450px;
+  }
+
+  .pokemon-artwork {
+    width: 75%;
   }
 }
