@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SwipeComponent } from './components/swipe/swipe.component';
 import { LikesComponent } from './components/likes/likes.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SwipeComponent,
-    LikesComponent
+    LikesComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

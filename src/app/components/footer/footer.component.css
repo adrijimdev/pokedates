@@ -1,0 +1,15 @@
+i {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.hover-effect {
+  color: white;
+}
+
+.hover-effect:hover {
+  color: #dc3545;
+  background-color: white;
+  transition: 0.5s;
+  cursor: pointer;
+}
