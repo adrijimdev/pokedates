@@ -13,7 +13,7 @@ export class SwipeComponent {
   constructor(private swipedPokemonService: SwipedPokemonService) {}
   swipedPokemon: number[] = [];
   swipedPokemonSubscription!: Subscription;
-  maxNumber: number = 1017 //1010
+  maxNumber: number = 1025 //1025
   // swipedPokemon: number[] = [];
   id: number = 0;
   pokemon: Pokemon = {
